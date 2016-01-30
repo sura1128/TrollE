@@ -3,11 +3,13 @@
 class UserInterface:
 
     def __init__(self, productList, controller):
-        self._productList = productList
+        self.__productList = productList
+        self.__controller = controller
 
 
     def welcome(self):
-        #set up controller here, get product list etc. 
+        #set up controller here, get product list etc.
+        controller.setup()
         
         print("============================================")
         print("Hi. Welcome to Troll-E. Choose one of the following options to get started.")
@@ -44,6 +46,19 @@ class UserInterface:
 
     def showProductPanel(self):
         print("PRODUCTS AVAILABLE")
+        #get product list here
 
-ui = UserInterface({}, [])
+        productList = self.__controller.get_product_map()
+
+        keyset = productList.keys()
+        i = 1
+        
+        for key in keyset:
+            print (i, key)
+            i = i +1
+            
+
+from Controller import Controller
+controller = Controller({}) 
+ui = UserInterface({}, controller)
 ui.welcome()

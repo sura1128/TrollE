@@ -1,0 +1,13 @@
+checkout,0,910921fc
+produce,5.0,317b1afc
+bath,6.98,613d1efc
+laundry,2.3,811e1dfc
+wine,999.99,c15a28fc
+chocolates,8.00,21071dfc
+meat,12.14,111b21fc
+utilities,17.8,c10723fc
+baby,3,814f22fc
+bread,2.00,b1b587fc
+grocery,12.9,d07c2211
+dairy,7.00,10c5e816
+
