@@ -25,7 +25,10 @@ class UserInterface:
             else:
                 return
         else:
-            print ("You have entered a wrong option. Please try again.")
+            if (action == 3):
+                print "Exiting Troll-E"
+            else:
+                print ("You have entered a wrong option. Please try again.")
             return
             
 
@@ -48,7 +51,7 @@ class UserInterface:
         print("PRODUCTS AVAILABLE")
         #get product list here
 
-        productList = self.__controller.get_product_map()
+        productList = controller.get_product_map()
 
         keyset = productList.keys()
         i = 1
@@ -56,7 +59,11 @@ class UserInterface:
         for key in keyset:
             print (i, key)
             i = i +1
-            
+        self.chooseProduct()
+        
+    def chooseProduct(self):
+        choice = raw_input("Type the name of the product you want! \n")
+        controller.get_route(choice)
 
 from Controller import Controller
 controller = Controller({}) 
