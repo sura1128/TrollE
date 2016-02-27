@@ -97,9 +97,31 @@ class Motor:
         GPIO.output(8, GPIO.LOW)
 ##        GPIO.cleanup()  
 
+    def orientRight(self):
+	GPIO.output(7, GPIO.HIGH)
+	GPIO.output(8, GPIO.HIGH)
+	
+	GPIO.output(15, GPIO.HIGH)
+	GPIO.output(12, GPIO.HIGH)
+	time.sleep(0.005)
+	GPIO.output(15, GPIO.LOW)
+	GPIO.output(12, GPIO.LOW)
+	time.sleep(0.005)
+
+    def orientLeft(self):
+	GPIO.output(7, GPIO.LOW)
+	GPIO.output(8, GPIO.LOW)
+
+	GPIO.output(15, GPIO.HIGH)
+	GPIO.output(12, GPIO.HIGH)
+	time.sleep(0.005)
+	GPIO.output(15, GPIO.LOW)
+	GPIO.output(12, GPIO.LOW)
+	time.sleep(0.005)
 
 motor = Motor()
 motor.setup()
-motor.move(1)
+motor.orientLeft()
+
 
 
