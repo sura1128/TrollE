@@ -66,5 +66,9 @@ class IMU:
         heading = 180* math.atan2(magdata[1], magdata[0])/3.14159265359
         if (heading < 0):
             heading = heading + 360
-	#print "Heading ", heading
+	print "Heading ", heading
 	return heading
+
+
+imu = IMU()
+imu.get_heading()
