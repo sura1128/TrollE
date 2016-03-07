@@ -44,13 +44,33 @@ class Controller:
     def get_route(self, destination):
         destination = self.get_uid_from_map(destination)
         current_pos = self.get_current();
-        print "dest id = ", self.get_index_from_uid(destination)
-        print "curr id = ", self.get_index_from_uid(current_pos)
-        print "direction = ", self.get_direction()
-
-
-    def get_direction(self):
-        from Imu import IMU
-        imu = IMU()
-        return imu.get_heading()
         
+        dest_id = self.get_index_from_uid(destination)
+        curr_id = self.get_index_from_uid(current_pos)
+        print "dest id = ", dest_id 
+        print "curr id = ", curr_id
+       
+
+        from Route import Route
+        route = Route(curr_id, dest_id, [], [], [])
+        path = route.findRoute()
+
+        from Imu import IMU
+	imu = IMU()
+	print "imu reading = ", imu.get_heading()
+
+        print "setting up motors..."
+        from Motor import Motor
+        motor = Motor()
+	motor.setup()       
+
+        print "setting up navigation..."
+	from navigate import Navigate
+        navigator = Navigate(motor,imu)       
+    
+        
+        for x in range(0,len(path)-1):
+            #print (path[x],path[x+1])
+            navigator.navigate(path[x], path[x+1])
+        
+

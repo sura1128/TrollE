@@ -38,7 +38,8 @@ class IMU:
         LSM_MAG_Y_MSB = 0x0B
         LSM_MAG_Z_LSB = 0x0C
         LSM_MAG_Z_MSB = 0x0D
-
+	
+	
 
         if (b.read_byte_data(LSM, LSM_WHOAMI_ADDRESS) == LSM_WHOAMI_CONTENTS):
             print ("LSM303D detected successfully on I2C bus ")
@@ -53,6 +54,13 @@ class IMU:
 
         count = 0;
         total = 0;
+
+	magXmax = 549
+	magYmax = 1514
+	magZmax = 0
+	magXmin = -2455
+	magYmin = -1583
+	magZmin = -720
         
         
         time.sleep(0.5)
@@ -62,13 +70,22 @@ class IMU:
         magz = self.twos_comp_combine(b.read_byte_data(LSM, LSM_MAG_Z_MSB), b.read_byte_data(LSM, LSM_MAG_Z_LSB))
 
         magdata = (magx, -magy, magz)
+	
+	#calculating max and min
+	    	
+	scaledMagX = (magx-magXmin)/(magXmax-magXmin)*2-1
+	scaledMagY = (magy-magYmin)/(magYmax-magYmin)*2-1
+	scaledMagZ = (magz-magZmin)/(magZmax-magZmin)*2-1
+ 	    
+	heading = 180* math.atan2(scaledMagX, scaledMagY)/3.14159265359
+	
 
-        heading = 180* math.atan2(magdata[1], magdata[0])/3.14159265359
+        #heading = 180* math.atan2(magdata[1], magdata[0])/3.14159265359
         if (heading < 0):
             heading = heading + 360
-	print "Heading ", heading
+	#print "Heading ", heading
 	return heading
 
-
-imu = IMU()
-imu.get_heading()
+#imu = IMU()
+#while (1):
+    #print imu.get_heading()

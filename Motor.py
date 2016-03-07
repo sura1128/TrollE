@@ -3,9 +3,6 @@ import time
 
 class Motor:
     
-
-
-
     def setup(self):
         
         GPIO.setmode(GPIO.BCM)
@@ -101,27 +98,31 @@ class Motor:
 	GPIO.output(7, GPIO.HIGH)
 	GPIO.output(8, GPIO.HIGH)
 	
-	GPIO.output(15, GPIO.HIGH)
-	GPIO.output(12, GPIO.HIGH)
-	time.sleep(0.005)
-	GPIO.output(15, GPIO.LOW)
-	GPIO.output(12, GPIO.LOW)
-	time.sleep(0.005)
+	count = 0
+	while (count < 3):
+	    GPIO.output(15, GPIO.HIGH)
+	    GPIO.output(12, GPIO.HIGH)
+	    time.sleep(0.005)
+	    GPIO.output(15, GPIO.LOW)
+	    GPIO.output(12, GPIO.LOW)
+	    time.sleep(0.005)
+	    count = count + 1
 
     def orientLeft(self):
 	GPIO.output(7, GPIO.LOW)
 	GPIO.output(8, GPIO.LOW)
+	
+	count = 0
+	while (count < 3):
+	    GPIO.output(15, GPIO.HIGH)
+	    GPIO.output(12, GPIO.HIGH)
+	    time.sleep(0.005)
+	    GPIO.output(15, GPIO.LOW)
+	    GPIO.output(12, GPIO.LOW)
+	    time.sleep(0.005)
+            count = count + 1
 
-	GPIO.output(15, GPIO.HIGH)
-	GPIO.output(12, GPIO.HIGH)
-	time.sleep(0.005)
-	GPIO.output(15, GPIO.LOW)
-	GPIO.output(12, GPIO.LOW)
-	time.sleep(0.005)
 
-motor = Motor()
-motor.setup()
-motor.orientLeft()
 
 
 

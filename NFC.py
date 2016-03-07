@@ -45,3 +45,5 @@ class NFC:
                 break
     	return dest_uid1
 
+#nfc = NFC()
+#print nfc.read_data()
