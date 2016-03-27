@@ -23,6 +23,18 @@ class Controller:
         
         self.__prodMap = prodList.get_product_map()
 
+    def getItems(self, productName):
+        filepath = productName+".txt"
+        items = {}
+        with open(filepath) as f:
+            lines = f.readlines()
+        f.closed
+
+        for x in range(0, len(lines)-1):
+            line = lines[x].rstrip().split(',')
+            items[line[0]] = line[1]
+        return items
+            
     def get_product_map(self):        
         return self.__prodMap
 
@@ -58,19 +70,22 @@ class Controller:
         from Imu import IMU
 	imu = IMU()
 	print "imu reading = ", imu.get_heading()
+	from obstacle import Obstacle
+	o = Obstacle()
 
         print "setting up motors..."
         from Motor import Motor
-        motor = Motor()
+        motor = Motor(o)
 	motor.setup()       
 
         print "setting up navigation..."
 	from navigate import Navigate
         navigator = Navigate(motor,imu)       
-    
+	navigator.set_direc(imu)    
         
         for x in range(0,len(path)-1):
             #print (path[x],path[x+1])
+	    #navigator.set_direc(imu)
             navigator.navigate(path[x], path[x+1])
         
 

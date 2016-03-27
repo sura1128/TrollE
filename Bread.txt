@@ -1,0 +1,11 @@
+White Bread, 2
+Wholemeal Bread, 3
+Multigrain Bread, 3
+Jam, 6
+Jelly, 4
+Nutella, 5
+Peanut Butter, 3.50
+Buns, 2
+Baugette, 5
+Wraps, 10
+Brown Bread, 4

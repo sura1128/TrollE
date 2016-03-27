@@ -1,0 +1,9 @@
+Milk, 3.50
+Low Fat Milk, 4
+Full Cream Milk, 2
+Butter, 3
+Parmesan, 5
+Cheddar, 4
+Mozarella, 6
+Yoghurt, 4
+Milkshake, 3

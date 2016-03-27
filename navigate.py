@@ -4,26 +4,30 @@ class Navigate:
 
     def __init__(self,motor,imu):
         self.__motor = motor
-        self.__imu = imu
-        
-    def get_direc(self, imu):
-        direc = imu.get_heading()
-        if (direc <= 198.5):
-            direc = "S"
-        elif (direc == 315):
-            direc = "N"
-        elif (direc == 135):
-            direc = "E"
-        elif (direc >= 251.565 and direc <= 251.6):
-            direc = "W"
-        return direc
-    
-  
+        self.__imu = imu      
+    	self.__direc = "X"
+
+    def set_direc(self, imu):
+	heading = imu.get_heading()
+	print heading
+	self.__direc = "W"
+
+	if (heading > 198 and heading <=198.5):
+	    self.__direc = "N"
+	elif (heading >= 315.0 and heading <=315.5):
+	    self.__direc = "S"
+	elif (heading >= 135.0 and heading <=135.5):
+	    self.__direc = "W"
+	elif (heading >=251.565 and heading <=251.6):
+	    self.__direc = "E"
+	else:
+	    print "heading = ", heading
+	    print "none"
+	print self.__direc	
 
     def navigate(self,x,y):
-
-        direc = self.get_direc(self.__imu)
-        print "Direction = ", direc
+	
+        direc = self.__direc
         
         if (x == 0 and y == 1):
             if (direc == "N"):
@@ -323,17 +327,17 @@ class Navigate:
 
     def turnRight(self):
         #turn 90
-        #self.__motor.turnRight()
+        self.__motor.turnRight()
         print "turn right"
 
     def turnLeft(self):
         #turn 90
-        #self.__motor.turnLeft()
+        self.__motor.turnLeft()
         print "turn left"
 
     def move(self,steps):
         #self.move forward
-        #self.__motor.move(steps)
+        self.__motor.move(steps)
         print "moving by ", steps, "steps"
 
 

@@ -1,0 +1,6 @@
+Champagne, 40
+Burgundy, 33
+Sauvignon Blanc, 12
+Chardonnay, 18
+Moscato, 45
+Merlot, 30
