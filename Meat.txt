@@ -1,9 +1,0 @@
-Chicken, 4
-Ham, 3
-Goat, 6
-Beef, 8
-Fish, 10
-Crab, 12
-Pork, 5
-Lard, 7
-Prawn, 15

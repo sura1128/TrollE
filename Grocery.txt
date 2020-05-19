@@ -1,8 +1,0 @@
-Onion, 2
-Garlic, 2
-Brinjal, 3
-Cabbage, 4
-Lettuce, 2
-Oranges, 5
-Broccoli, 3
-Cucumber, 2

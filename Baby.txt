@@ -1,8 +1,0 @@
-Diapers, 3
-Baby Oil, 5
-Baby Lotion, 6
-Bottles, 3
-Cerelac, 7
-Baby Powder, 2
-Pacifier, 3
-Baby Formula, 5

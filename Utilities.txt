@@ -1,9 +1,0 @@
-Plug, 2
-Telephone, 20
-Ethernet Cable, 11
-Knife, 4
-Tape, 2
-Scizzors, 3
-Hammer, 2
-Bulb, 5
-Batteries, 7

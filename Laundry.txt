@@ -1,4 +1,0 @@
-Laundry Detergent, 10
-Basket, 8
-Bleach, 15
-Fabric Softener, 12
