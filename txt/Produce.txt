@@ -1,0 +1,8 @@
+Banana, 2
+Spinach, 4
+Lettuce, 2
+Avocado, 5
+Tomato, 2
+Apple, 1
+Capsicum, 3
+Cauliflower, 2

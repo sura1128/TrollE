@@ -1,0 +1,11 @@
+Shampoo, 5
+Body Wash, 4
+Conditioner, 6
+Face Wash, 4
+Bath Scrub, 3
+Soap, 2
+Olive Oil, 7
+Mug, 3
+Bucket, 5
+Bath Mat, 4
+Towel, 3
